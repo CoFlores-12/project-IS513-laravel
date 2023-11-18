@@ -1,0 +1,27 @@
+.lea:hover {
+    background-color: #EEE;
+    cursor: pointer;
+}
+table {
+    outline: 1px solid #eee;
+    border-radius: 4px;
+}
+thead {
+    background-color: #bcbcbc15;
+}
+.ittab {
+    background-color: #bcbcbc65;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+.activetab {
+    background-color: white !important;
+}
+.teamCont {
+    text-align: center;
+    outline: 1px solid #eee;
+}
+
+.teams, .leagues {
+    height: fit-content;
+}
