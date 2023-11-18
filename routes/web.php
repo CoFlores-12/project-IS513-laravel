@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\torneoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/torneos', [torneoController::class, 'torneosHome'])->name('torneos.home');
+Route::get('/torneo/{id}', [torneoController::class, 'torneoHome'])->name('torneo.home');
