@@ -19,4 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/torneos', [torneoController::class, 'torneosHome'])->name('torneos.home');
+Route::get('/torneos/nuevo', [torneoController::class, 'nuevo'])->name('torneos.nuevo');
 Route::get('/torneo/{id}', [torneoController::class, 'torneoHome'])->name('torneo.home');

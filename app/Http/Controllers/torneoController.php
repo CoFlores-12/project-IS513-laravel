@@ -13,4 +13,8 @@ class torneoController extends Controller
     public function torneoHome($id){
         return view('torneo');
     }
+
+    public function nuevo(){
+        return view('nuevoTorneo');
+    }
 }
