@@ -10,10 +10,7 @@
     <link rel="stylesheet" href="/css/torneo.css">
 </head>
 <body>
-    <nav>
-        Soccer
-    </nav>
-    <main class="flex flex-row p-0 md:px-10 justify-center ">
+    <main class="flex flex-row  sm:p-2 md:p-10 justify-center ">
         <div class="leagues bg-white px-2 w-[100%] md:w-[20%] shadow-sm rounded-md py-2 hidden md:inline">
             <div class="lea py-2 flex flex-row"> 
                 <img class="w-[20px] mx-2" src="https://api.dicebear.com/7.x/bottts/svg?seed=Lilly" alt="avatar" />
