@@ -20,4 +20,8 @@ Route::get('/', function () {
 
 Route::get('/torneos', [torneoController::class, 'torneosHome'])->name('torneos.home');
 Route::get('/torneos/nuevo', [torneoController::class, 'nuevo'])->name('torneos.nuevo');
+Route::post('/torneos/guardar', [torneoController::class, 'guardar'])->name('torneos.guardar');
+Route::post('/torneos/actualizar', [torneoController::class, 'actualizar'])->name('torneos.actualizar');
+Route::get('/torneos/editar/{id}', [torneoController::class, 'torneoEdit'])->name('torneos.edit');
+Route::get('/torneos/eliminar/{id}', [torneoController::class, 'torneoEliminar'])->name('torneos.eliminar');
 Route::get('/torneo/{id}', [torneoController::class, 'torneoHome'])->name('torneo.home');

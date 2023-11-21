@@ -8,58 +8,110 @@
     <link rel="stylesheet" href="/css/app.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/torneo.css">
+    
+    <script src="https://kit.fontawesome.com/1e8824e8c2.js" crossorigin="anonymous"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 <body>
     <main class="flex flex-row  sm:p-2 md:p-10 justify-center ">
-        <div class="leagues bg-white px-2 w-[100%] md:w-[20%] shadow-sm rounded-md py-2 hidden md:inline">
-            <div class="lea py-2 flex flex-row"> 
-                <img class="w-[20px] mx-2" src="https://api.dicebear.com/7.x/bottts/svg?seed=Lilly" alt="avatar" />
-                League 1
-            </div>
-            <div class="divider"></div>
-            <div class="lea py-2 flex flex-row"> 
-                <img class="w-[20px] mx-2" src="https://api.dicebear.com/7.x/bottts/svg?seed=Garfield" alt="avatar" />
-                League 2
-            </div>
-            <div class="divider"></div>
-            <div class="lea py-2 flex flex-row"> 
-                <img class="w-[20px] mx-2" src="https://api.dicebear.com/7.x/bottts/svg?seed=Bear" alt="avatar" />
-                League 3
-            </div>
-            <div class="divider"></div>
-            <div class="lea py-2 flex flex-row"> 
-                <img class="w-[20px] mx-2" src="https://api.dicebear.com/7.x/bottts/svg?seed=Casper" alt="avatar" />
-                League 4
-            </div>
-            <div class="divider"></div>
+        <div class="leagues animate__animated animate__fadeInLeft bg-white px-2 w-[100%] md:w-[20%] shadow-sm rounded-md py-2 hidden md:inline">
+            @for($i = 0; $i < 5 && $i < count($torneos); $i++)
+                <a href="/torneo/{{$torneos[$i]->id}}">
+                    <div class="lea py-2 flex flex-row"> 
+                        <img class="w-[20px] mx-2" src="/client/{{$torneos[$i]->logo}}" alt="avatar" />
+                        {{$torneos[$i]->nombre}}
+                    </div>
+                </a>
+                <div class="divider"></div>
+            @endfor
+           
         </div>
         <div class="flex flex-col  w-[100%] md:w-[60%] px-2">
-            <div class="flex flex-row">
-                <a href="/torneos">Torneos</a> > English Premier League
+            <div class="flex flex-row text-sm text-gray-400">
+                <a href="/torneos">Torneos</a> > {{$torneo->nombre}}
             </div>
-            <div class="flex flex-row ">
-            <img class="w-[114px] shadow-xl rounded-xl mx-3" src="https://api.dicebear.com/7.x/bottts/svg?seed=Missy" alt="avatar" />
+            <div class="flex flex-row mt-3">
+            <img class="w-[114px] shadow-xl rounded-xl mx-3" src="/client/{{$torneo->logo}}" alt="avatar" />
                 <div class="infoLeague">
                     <div class="text-info-ct">About</div>
                     <div class="text-sm">
-                    The Premier League is the top level of the English football league 
-                        system. Contested by 20 clubs, it operates on a system of 
-                        promotion and relegation with the English Football League
+                    {{$torneo->informacion}}
                     </div>
                     <div class="text-info-ct">Founded</div>
                     <p  class="text-sm">Nov. 2023</p>
                 </div>
             </div>
-            <div class="flex flex-row mt-5">
-                <div class="p-2 ittab activetab" onclick="changetab('resCont', this)">Resultados</div>
-                <div class="p-2 ittab" onclick="changetab('staCont', this)">Estadisticas</div>
-                <div class="p-2 ittab" onclick="changetab('teamscont', this)">teamscont</div>
-                <div class="p-2 ittab" onclick="changetab('posCont', this)">Posiciones</div>
+            <div class="flex flex-row items-center justify-end ">
+
+            <a href="/torneos/eliminar/{{$torneo->id}}">
+           <button type="submit" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-red-500 to-red-600 text-sm hover:bg-gradient-to-l hover:from-red-600 hover:to-red-500 text-white p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500 mr-2">
+                Eliminar <i class="fa-solid fa-trash ml-2"></i>
+              </button>
+           </a>
+
+
+           <a href="/torneos/editar/{{$torneo->id}}">
+           <button type="submit" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-white text-sm hover:bg-gradient-to-l hover:from-white- hover:to-white text-black p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500 mr-2">
+                Editar <i class="fa-solid fa-pen-to-square ml-2"></i>
+              </button>
+           </a>
+              <button type="submit" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-white text-sm hover:bg-gradient-to-l hover:from-white- hover:to-white text-black p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500">
+                Agregar Equipo <i class="fa-solid fa-plus ml-2"></i>
+              </button>
             </div>
-            <div class="container bg-white w-full">
-                <div id="resCont"></div>
-                <div id="staCont" class="hidden"></div>
-                <div id="posCont" class="hidden"></div>
+            <div class="flex flex-row mt-3 animate__fadeInUp animate__animated">
+                <div class="p-2 ittab activetab" onclick="changetab('resCont', this)">Resultados</div>
+                <div class="p-2 ittab" onclick="changetab('staCont', this)">Posiciones</div>
+                <div class="p-2 ittab" onclick="changetab('teamscont', this)">Equipos</div>
+                <div class="p-2 ittab" onclick="changetab('posCont', this)">Top</div>
+            </div>
+            <div class="container animate__fadeInUp animate__animated bg-white w-full">
+                <div id="resCont" class="p-3">
+                    <table class="w-full">
+                        <tbody>
+                            <tr class="p-3">
+                                <td class="text-right font-light">Equipo 1</td>
+                                <td class="w-[70px] text-center font-bold">0 - 1</td>
+                                <td class="font-light">Equipo 2</td>
+                                <td> <button type="submit" class="w-full flex justify-center bg-gradient-to-r from-green-500 to-green-600  hover:bg-gradient-to-l hover:from-green-500 hover:to-green-600 text-gray-100 p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500">
+                Info
+              </button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="staCont" class="hidden p-3">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <td class="text-center">#</td>
+                                <td>Equipo</td>
+                                <td class="text-center">PT</td>
+                                <td class="text-center">E</td>
+                                <td class="text-center">G</td>
+                                <td class="text-center">P</td>
+                                <td class="text-center">PTS</td>
+                            </tr>
+                        </thead>
+                        <tbody class="posTable">
+                            @for($i=1; $i <= 10; $i++)
+                            <tr class="hover:bg-gray-50 my-2">
+                                <td class="text-center">{{$i}}</td>
+                                <td class="flex flex-row items-center"> <img class="w-[15px] mx-3" src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Lilly" alt=""> Equipo {{$i}}</td>
+                                <td class="text-center">{{rand(5-$i,9-$i)}}</td>
+                                <td class="text-center">{{rand(5-$i,9-$i)}}</td>
+                                <td class="text-center">{{rand(5-$i,9-$i)}}</td>
+                                <td class="text-center">{{rand(5-$i,9-$i)}}</td>
+                                <td class="text-center">{{rand(5-$i,9-$i)}}</td>
+                            </tr>
+                            @endfor
+                        </tbody>
+                    </table>
+                </div>
+                <div id="posCont" class="hidden p-3"></div>
                 <div id="teamscont" class="grid grid-cols-2 md:grid-cols-4 gap-2 py-3 hidden">
                     <div class="teamCont p-3 shadow-sm rounded-md">
                         <img class="w-[100%]" src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Lilly" alt="">
@@ -84,7 +136,7 @@
                 </div>
             </div>
         </div>
-        <div class="teams  bg-white px-2 w-[100%] md:w-[20%] shadow-sm rounded-md py-2 hidden md:flex">
+        <div class="teams  animate__animated animate__fadeInRight bg-white px-2 w-[100%] md:w-[20%] shadow-sm rounded-md py-2 hidden md:flex">
             <table class="w-full">
                 <thead>
                     <tr>
@@ -95,42 +147,16 @@
                         <td>PTS</td>
                     </tr>
                 </thead>
-                <tbody>
-                <tr>
-                        <td>1</td>
-                        <td>Equipo 1</td>
-                        <td>7</td>
-                        <td>13</td>
-                        <td>21</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Equipo 2</td>
-                        <td>7</td>
-                        <td>13</td>
-                        <td>21</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Equipo 3</td>
-                        <td>7</td>
-                        <td>13</td>
-                        <td>21</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Equipo 4</td>
-                        <td>7</td>
-                        <td>13</td>
-                        <td>21</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Equipo 5</td>
-                        <td>7</td>
-                        <td>13</td>
-                        <td>21</td>
-                    </tr>
+                <tbody class="posTable">
+                    @for($i=1; $i <= 10; $i++)
+                        <tr class="hover:bg-gray-50 my-2">
+                            <td>{{$i}}</td>
+                            <td> Equipo {{$i}}</td>
+                            <td>{{rand(5-$i,9-$i)}}</td>
+                            <td>{{rand(5-$i,9-$i)}}</td>
+                            <td>{{rand(5-$i,9-$i)}}</td>
+                        </tr>
+                    @endfor
                 </tbody>
             </table>
         </div>
@@ -155,7 +181,7 @@
                 case "staCont":
                     staCont.classList.remove('hidden');
                     posCont.classList.add('hidden');
-                    staCont.classList.add('hidden');
+                    resCont.classList.add('hidden');
                     teamscont.classList.add('hidden');
                     break;
                 case "posCont":

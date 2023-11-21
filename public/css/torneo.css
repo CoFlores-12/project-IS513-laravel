@@ -25,3 +25,13 @@ thead {
 .teams, .leagues {
     height: fit-content;
 }
+
+.posTable > tr:nth-last-child(1) {
+    background-color: rgba(255, 0, 0, 0.141);
+}
+.posTable > tr:nth-last-child(2) {
+    background-color: rgba(255, 0, 0, 0.141);
+}
+.posTable > tr:nth-last-child(3) {
+    background-color: rgba(255, 0, 0, 0.141);
+}
