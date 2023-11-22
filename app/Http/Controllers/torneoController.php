@@ -10,43 +10,46 @@ use Illuminate\Support\Facades\Http;
 class torneoController extends Controller
 {
     public function torneosHome(){
-        $client = new Client();
+        $client = new Client(['base_uri' => 'http://localhost:8080/api/torneos/']);
         $response = "null";
         $torneos = [];
         try {
-            $response = Http::get('http://localhost:8080/api/torneos/test');
-            $torneos = Http::get('http://localhost:8080/api/torneos/');
+            $response = $client->request('GET', 'test');
+            $torneos = $client->request('GET', '');
         } catch (\Throwable $th) {
             return view('torneos', ['response'=>$response, 'torneos'=> $torneos]);
         }
-        return view('torneos', ['response'=>$response,'torneos'=> \json_decode($torneos)]);
+        return view('torneos', ['response'=>$response,'torneos'=> \json_decode($torneos->getBody())]);
     }
     public function torneoHome($id){
+        $client = new Client(['base_uri' => 'http://localhost:8080/api/torneos/']);
         $torneo = [];
         $torneos = [];
         try {
-            $torneo = Http::get('http://localhost:8080/api/torneos/id/'.$id);
-            $torneos = Http::get('http://localhost:8080/api/torneos/');
+            $torneo = $client->request('GET', 'id/'.$id);
+            $torneos = $client->request('GET', '');
             //code...
         } catch (\Throwable $th) {
             //throw $th;
         }
-        return view('torneo', ['torneo'=> \json_decode($torneo),'torneos'=> \json_decode($torneos)]);
+        return view('torneo', ['torneo'=> \json_decode($torneo->getBody()),'torneos'=> \json_decode($torneos->getBody())]);
     }
 
     public function torneoEdit($id){
+        $client = new Client(['base_uri' => 'http://localhost:8080/api/torneos/']);
         $torneo = [];
         try {
-            $torneo = Http::get('http://localhost:8080/api/torneos/id/'.$id);
+            $torneo = $client->request('GET', 'id/'.$id);
             //code...
         } catch (\Throwable $th) {
             //throw $th;
         }
-        return view('editarTorneo', ['torneo'=> \json_decode($torneo)]);
+        return view('editarTorneo', ['torneo'=> \json_decode($torneo->getBody())]);
     }
     public function torneoEliminar($id){
+        $client = new Client(['base_uri' => 'http://localhost:8080/api/torneos/']);
         try {
-            Http::delete('http://localhost:8080/api/torneos/delete/'.$id);
+            $client->request('DELETE', 'delete/'.$id);
             //code...
         } catch (\Throwable $th) {
             //throw $th;
@@ -59,6 +62,7 @@ class torneoController extends Controller
     }
 
     public function guardar(Request $request){
+        $client = new Client(['base_uri' => 'http://localhost:8080/api/torneos/']);
         $image = 'blank.png';
         if($request->hasFile('img')){
             $destinationPath = 'client';
@@ -68,17 +72,19 @@ class torneoController extends Controller
             $image = $filename;
         }
 
-        $response = Http::post('http://localhost:8080/api/torneos/create', [
+        $response = $client->request('POST', 'create', [
+            'json'=>[
                 "nombre"=> $request->name,
                 "titulo"=> $request->title,
                 "informacion"=> $request->informacion,
                 "estado"=> 0,
                 "logo"=> $image
             
-        ]);
+        ]]);
         return redirect()->route('torneos.home');
     }
     public function actualizar(Request $request){
+        $client = new Client(['base_uri' => 'http://localhost:8080/api/torneos/']);
         $image = $request->logo;
         if($request->logoChanged == "1"){
             $destinationPath = 'client';
@@ -88,7 +94,8 @@ class torneoController extends Controller
             $image = $filename;
         }
 
-        $response = Http::post('http://localhost:8080/api/torneos/update', [
+        $response =$client->request('POST', 'update', [
+            'json'=>[
                 "id" => $request->id,
                 "nombre"=> $request->name,
                 "titulo"=> $request->title,
@@ -96,15 +103,8 @@ class torneoController extends Controller
                 "estado"=> 0,
                 "logo"=> $image
             
-        ]);
+        ]]);
         return redirect()->route('torneos.home');
     }
 
-    /*
-        $response = Http::get('http://localhost:8080/api/torneos');
-        $response = Http::post('http://localhost:8080/api/torneos', [
-            'name' => 'name',
-            'role' => 'Network',
-        ]);
-    */
 }
