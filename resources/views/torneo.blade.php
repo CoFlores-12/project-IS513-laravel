@@ -16,6 +16,12 @@
   />
 </head>
 <body>
+<div id="gameCont" class="hidden p-3 absolute top-0 w-full h-full bg-white z-50">
+    <div class="flex absolute right-10 mt-2 justify-end">
+        <button onclick="toggleModal()" class="bg-white p-2 rounded-md px-3"><i class="fa-solid fa-x"></i></button>
+    </div>
+    <iframe src="/torneos/clasificatoria/{{$torneo->id}}" class="w-full h-full" frameborder="0"></iframe>
+</div>
     <main class="flex flex-row  sm:p-2 md:p-10 justify-center ">
         <div class="leagues animate__animated animate__fadeInLeft bg-white px-2 w-[100%] md:w-[20%] shadow-sm rounded-md py-2 hidden md:inline">
             @for($i = 0; $i < 5 && $i < count($torneos); $i++)
@@ -67,8 +73,10 @@
                 <div class="p-2 ittab" onclick="changetab('staCont', this)">Posiciones</div>
                 <div class="p-2 ittab" onclick="changetab('teamscont', this)">Equipos</div>
                 <div class="p-2 ittab" onclick="changetab('posCont', this)">Top</div>
+                <div class="p-2 ittab" onclick="toggleModal()">Clasificatoria</div>
             </div>
             <div class="container animate__fadeInUp animate__animated bg-white w-full">
+                
                 <div id="resCont" class="p-3">
                     <table class="w-full">
                         <tbody>
@@ -168,6 +176,7 @@
         const staCont = document.getElementById('staCont')
         const posCont = document.getElementById('posCont')
         const teamscont = document.getElementById('teamscont')
+        const gameCont = document.getElementById('gameCont')
         function changetab(data, elementtab) {
             document.getElementsByClassName('activetab')[0].classList.remove('activetab');
             elementtab.classList.add('activetab');
@@ -196,9 +205,14 @@
                     staCont.classList.add('hidden');
                     resCont.classList.add('hidden');
                     break;
+               
                 default:
                     break;
             }
+        }
+
+        function toggleModal() {
+            gameCont.classList.toggle('hidden');    
         }
     </script>
 </body>

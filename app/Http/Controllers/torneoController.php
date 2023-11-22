@@ -107,4 +107,8 @@ class torneoController extends Controller
         return redirect()->route('torneos.home');
     }
 
+    public function clasificatoria($id){
+        return view('clasificatoriaTorneo');
+    }
+
 }

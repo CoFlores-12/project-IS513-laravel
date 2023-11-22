@@ -24,4 +24,5 @@ Route::post('/torneos/guardar', [torneoController::class, 'guardar'])->name('tor
 Route::post('/torneos/actualizar', [torneoController::class, 'actualizar'])->name('torneos.actualizar');
 Route::get('/torneos/editar/{id}', [torneoController::class, 'torneoEdit'])->name('torneos.edit');
 Route::get('/torneos/eliminar/{id}', [torneoController::class, 'torneoEliminar'])->name('torneos.eliminar');
+Route::get('/torneos/clasificatoria/{id}', [torneoController::class, 'clasificatoria'])->name('torneos.clasificatoria');
 Route::get('/torneo/{id}', [torneoController::class, 'torneoHome'])->name('torneo.home');
