@@ -137,7 +137,7 @@
 <img src="/img/player.png" class="h-56 absolute right-10 mr-10 animate__animated animate__zoomInDown">
         <div class="w-full  max-w-md z-10 animate__animated animate__slideInLeft">
           <div class="sm:text-4xl xl:text-5xl font-bold leading-tight mb-6">Nuevo torneo</div>
-          <div class="sm:text-sm xl:text-md text-gray-200 font-normal">Amador pone algo aqui :(</div>
+          <div class="sm:text-sm xl:text-md text-gray-200 font-normal">¡Genera tu torneo ahora! </div>
         </div>
        <ul class="circles">
       <li></li>

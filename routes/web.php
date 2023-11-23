@@ -26,3 +26,12 @@ Route::get('/torneos/editar/{id}', [torneoController::class, 'torneoEdit'])->nam
 Route::get('/torneos/eliminar/{id}', [torneoController::class, 'torneoEliminar'])->name('torneos.eliminar');
 Route::get('/torneos/clasificatoria/{id}', [torneoController::class, 'clasificatoria'])->name('torneos.clasificatoria');
 Route::get('/torneo/{id}', [torneoController::class, 'torneoHome'])->name('torneo.home');
+
+Route::get('/jugadores', function () {
+    return view('jugadores');
+
+});
+Route::get('/historialDeJugador', function () {
+    return view('historialDeJugador');
+    
+});
