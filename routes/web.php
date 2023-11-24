@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\torneoController;
+use App\Http\Controllers\PersonaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,8 @@ Route::get('/torneos/editar/{id}', [torneoController::class, 'torneoEdit'])->nam
 Route::get('/torneos/eliminar/{id}', [torneoController::class, 'torneoEliminar'])->name('torneos.eliminar');
 Route::get('/torneos/clasificatoria/{id}', [torneoController::class, 'clasificatoria'])->name('torneos.clasificatoria');
 Route::get('/torneo/{id}', [torneoController::class, 'torneoHome'])->name('torneo.home');
+Route::get('/persona/crear', [PersonaController::class, 'crearPersona'])->name('persona.crear');
+
 
 Route::get('/jugadores', function () {
     return view('jugadores');
