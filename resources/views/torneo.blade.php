@@ -42,12 +42,12 @@
             <div class="flex flex-row mt-3">
             <img class="w-[114px] shadow-xl rounded-xl mx-3" src="/client/{{$torneo->logo}}" alt="avatar" />
                 <div class="infoLeague">
-                    <div class="text-info-ct">About</div>
+                    <div class="text-info-ct">Informacion</div>
                     <div class="text-sm">
                     {{$torneo->informacion}}
                     </div>
-                    <div class="text-info-ct">Founded</div>
-                    <p  class="text-sm">Nov. 2023</p>
+                    <div class="text-info-ct">creado en:</div>
+                    <p  class="text-sm">{{$torneo->fecha}}</p>
                 </div>
             </div>
             <div class="flex flex-row items-center justify-end ">

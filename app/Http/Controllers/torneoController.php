@@ -78,7 +78,8 @@ class torneoController extends Controller
                 "titulo"=> $request->title,
                 "informacion"=> $request->informacion,
                 "estado"=> 0,
-                "logo"=> $image
+                "logo"=> $image,
+                "fecha"=> (string) date('F, o')
             
         ]]);
         return redirect()->route('torneos.home');

@@ -38,3 +38,7 @@ Route::get('/historialDeJugador', function () {
     return view('historialDeJugador');
     
 });
+
+Route::get('/test', function () {
+   return date('F, o'); 
+});
