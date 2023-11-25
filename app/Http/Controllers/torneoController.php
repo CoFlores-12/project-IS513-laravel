@@ -110,5 +110,8 @@ class torneoController extends Controller
     public function clasificatoria($id){
         return view('clasificatoriaTorneo');
     }
+    public function agregarequipo(){
+        return view('agregarEquipo');
+    }
 
 }

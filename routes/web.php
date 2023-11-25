@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::get('/torneos', [torneoController::class, 'torneosHome'])->name('torneos.home');
 Route::get('/torneos/nuevo', [torneoController::class, 'nuevo'])->name('torneos.nuevo');
+Route::get('/torneos/agregarequipo', [torneoController::class, 'agregarequipo'])->name('torneos.agregarequipo');
 Route::post('/torneos/guardar', [torneoController::class, 'guardar'])->name('torneos.guardar');
 Route::post('/torneos/actualizar', [torneoController::class, 'actualizar'])->name('torneos.actualizar');
 Route::get('/torneos/editar/{id}', [torneoController::class, 'torneoEdit'])->name('torneos.edit');
