@@ -167,12 +167,7 @@
               <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Nombre</label>
               <input class=" w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-green-500" type="" name="name" required placeholder="" value="">
             </div>
-            <div class="mt-8 content-center">
-              <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
-                Titulo
-              </label>
-              <input class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-green-500" required name="title" type="" placeholder="" value="">
-            </div>
+            
             <div class="mt-8 content-center">
               <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                 Informacion

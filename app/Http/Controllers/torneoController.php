@@ -75,7 +75,6 @@ class torneoController extends Controller
         $response = $client->request('POST', 'create', [
             'json'=>[
                 "nombre"=> $request->name,
-                "titulo"=> $request->title,
                 "informacion"=> $request->informacion,
                 "estado"=> 0,
                 "logo"=> $image,
@@ -99,7 +98,7 @@ class torneoController extends Controller
             'json'=>[
                 "id" => $request->id,
                 "nombre"=> $request->name,
-                "titulo"=> $request->title,
+                "fecha"=> $request->fecha,
                 "informacion"=> $request->informacion,
                 "estado"=> 0,
                 "logo"=> $image

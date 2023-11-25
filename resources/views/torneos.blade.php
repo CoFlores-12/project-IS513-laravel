@@ -155,7 +155,7 @@ Crear nuevo torneo <i class="fa-solid fa-plus"></i>
                           scope="col"
                           class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
                         >
-                          Titulo
+                          Informacion
                         </th>
                         <th
                           scope="col"
@@ -188,7 +188,6 @@ Crear nuevo torneo <i class="fa-solid fa-plus"></i>
                                 </div>
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{$torneos[$i]->titulo}}</div>
                                 <div class="text-sm text-gray-500">{{$torneos[$i]->informacion}}</div>
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap">

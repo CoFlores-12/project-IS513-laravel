@@ -19,6 +19,7 @@
             @csrf
 
             <input type="hidden" name="id" value="{{$torneo->id}}">
+            <input type="hidden" name="fecha" value="{{$torneo->fecha}}">
             <input type="hidden" name="logo" value="{{$torneo->logo}}">
             <input type="hidden" name="logoChanged" value="0" id="logoChanged">
 
@@ -36,10 +37,7 @@
             <input class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-green-500" name="name" type="text"  value="{{$torneo->nombre}}">
 
             
-            <label class="ml-3 mt-8 text-sm font-bold text-gray-700 tracking-wide">
-            Titulo
-            </label>
-            <input class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-green-500" name="title" type="text"  value="{{$torneo->titulo}}">
+           
 
             <label class="ml-3 mt-8 text-sm font-bold text-gray-700 tracking-wide">
             Informacion
