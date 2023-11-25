@@ -64,9 +64,11 @@
                 Editar <i class="fa-solid fa-pen-to-square ml-2"></i>
               </button>
            </a>
-              <button type="submit" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-white text-sm hover:bg-gradient-to-l hover:from-white- hover:to-white text-black p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500">
-                Agregar Equipo <i class="fa-solid fa-plus ml-2"></i>
-              </button>
+           <a href="/torneos/agregarequipo">   
+               <button type="submit" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-white text-sm hover:bg-gradient-to-l hover:from-white- hover:to-white text-black p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500">
+                   Agregar Equipo <i class="fa-solid fa-plus ml-2"></i>
+                </button>
+            </a>
             </div>
             <div class="flex flex-row mt-3 animate__fadeInUp animate__animated">
                 <div class="p-2 ittab activetab" onclick="changetab('resCont', this)">Resultados</div>
