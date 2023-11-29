@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+// ############## TORNEO ENDPOINTS ##############
 Route::get('/torneos', [torneoController::class, 'torneosHome'])->name('torneos.home');
 Route::get('/torneos/nuevo', [torneoController::class, 'nuevo'])->name('torneos.nuevo');
 Route::get('/torneos/agregarequipo', [torneoController::class, 'agregarequipo'])->name('torneos.agregarequipo');
@@ -28,7 +29,8 @@ Route::get('/torneos/editar/{id}', [torneoController::class, 'torneoEdit'])->nam
 Route::get('/torneos/eliminar/{id}', [torneoController::class, 'torneoEliminar'])->name('torneos.eliminar');
 Route::get('/torneos/clasificatoria/{id}', [torneoController::class, 'clasificatoria'])->name('torneos.clasificatoria');
 Route::get('/torneo/{id}', [torneoController::class, 'torneoHome'])->name('torneo.home');
-Route::get('/persona/crear', [PersonaController::class, 'crearPersona'])->name('persona.crear');
+
+// ############## equipos ENDPOINTS ##############
 
 Route::get('/torneo/{id}/equipos', [torneoController::class, 'equiposHome'])->name('equipos.home');
 Route::get('/torneo/{id}/equipos/nuevo', [torneoController::class, 'nuevoEquipo'])->name('equipos.nuevo');
@@ -37,9 +39,11 @@ Route::get('/torneo/{id}/equipos/editar/{idEquipo}', [torneoController::class, '
 Route::post('/torneo/{id}/equipos/actualizar', [torneoController::class, 'actualizarEquipo'])->name('equipos.actualizar');
 Route::get('/torneo/{id}/equipos/eliminar/{idEquipo}', [torneoController::class, 'eliminarEquipo'])->name('equipos.eliminar');
 
+// ############## persona ENDPOINTS ##############
+
+Route::get('/persona/crear', [PersonaController::class, 'crearPersona'])->name('persona.crear');
 Route::get('/jugadores', function () {
     return view('jugadores');
-
 });
 Route::get('/historialDeJugador', function () {
     return view('historialDeJugador');

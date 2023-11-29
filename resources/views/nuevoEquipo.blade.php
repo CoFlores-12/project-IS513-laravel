@@ -43,7 +43,7 @@
             <!-- Sección derecha con formulario para crear el equipo -->
             <div class="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full w-2/5 xl:w-2/5 p-8  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white animate__animated animate__slideInRight">
                 <div class="max-w-md w-full">
-                    <form enctype="multipart/form-data" class="" action="/torneo/{{$torneo->id}}/equipos/guardar" method="POST">
+                    <form enctype="multipart/form-data" class="" action="/torneo/{{$torneo->idtorneo}}/equipos/guardar" method="POST">
                         @csrf
                         <div class="relative flex flex-col items-center">
                             <label for="imgInp" style="text-align:center">
@@ -70,9 +70,9 @@
 
 
                             <select class="select w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-green-500" required name="idTorneo">
-                                <option value="{{$torneo->id}}">Torneo actual: {{$torneo->nombre}} o...</option>
+                                <option value="{{$torneo->idtorneo}}">Torneo actual: {{$torneo->nombre}} o...</option>
                                 @foreach ($torneos as $torneo)
-                                    <option value="{{ $torneo->id }}">{{ $torneo->nombre }}</option>
+                                    <option value="{{ $torneo->idtorneo }}">{{ $torneo->nombre }}</option>
                                 @endforeach
                             </select>
 

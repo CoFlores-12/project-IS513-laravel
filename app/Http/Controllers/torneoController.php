@@ -264,7 +264,6 @@ class torneoController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
         }
-        return redirect()->route('equipos.home', ['id' => $id]);
+        return redirect()->route('equipos.home', ['id'=>$id]);
 
-    }
 }
