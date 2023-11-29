@@ -23,19 +23,19 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col"></th>
                             <th scope="col">
                                 <i class="fa-solid fa-person"></i>
-                                <i class="fa-solid fa-up-down "></i>
+                                <i class="fa-solid fa-up-down ">1,86</i>
 
                             </th>
-                            <th scope="col">Last</th>
+                            <th scope="col">fc barcelona</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row"></th>
                             <td>
                                 <div class=" text-center">
                                     <div class="row align-items-start">
@@ -52,7 +52,7 @@
                                 <div class=" text-center">
                                     <div class="row align-items-start">
                                         <div class="col">
-                                            Vel
+                                            Rit
                                         </div>
                                         <div class="col">
                                             98
@@ -63,15 +63,69 @@
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">2</th>
+                            <th scope="row"></th>
                             <td>
                                 <div class=" text-center">
                                     <div class="row align-items-start">
                                         <div class="col">
-                                            Vel
+                                            Pas
                                         </div>
                                         <div class="col">
-                                            98
+                                            89
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class=" text-center">
+                                    <div class="row align-items-start">
+                                        <div class="col">
+                                            Rit
+                                        </div>
+                                        <div class="col">
+                                            99
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>
+                                <div class=" text-center">
+                                    <div class="row align-items-start">
+                                        <div class="col">
+                                            Reg
+                                        </div>
+                                        <div class="col">
+                                            81
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class=" text-center">
+                                    <div class="row align-items-start">
+                                        <div class="col">
+                                            Def
+                                        </div>
+                                        <div class="col">
+                                            47
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>
+                                <div class=" text-center">
+                                    <div class="row align-items-start">
+                                        <div class="col">
+                                            Fis
+                                        </div>
+                                        <div class="col">
+                                            90
                                         </div>
                                     </div>
                                 </div>
@@ -90,61 +144,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">3</th>
-                            <td>
-                                <div class=" text-center">
-                                    <div class="row align-items-start">
-                                        <div class="col">
-                                            Vel
-                                        </div>
-                                        <div class="col">
-                                            98
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" text-center">
-                                    <div class="row align-items-start">
-                                        <div class="col">
-                                            Vel
-                                        </div>
-                                        <div class="col">
-                                            98
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>
-                                <div class=" text-center">
-                                    <div class="row align-items-start">
-                                        <div class="col">
-                                            Vel
-                                        </div>
-                                        <div class="col">
-                                            98
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" text-center">
-                                    <div class="row align-items-start">
-                                        <div class="col">
-                                            Vel
-                                        </div>
-                                        <div class="col">
-                                            98
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
+                            <th scope="row"></th>
                             <td>
                                 <div class=" text-center">
                                     <div class="row align-items-start">
@@ -193,29 +193,29 @@
         <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">transferencia</th>
+                            <th scope="col">equipo actual</th>
+                            <th scope="col">precio</th>
+                            <th scope="col">nacionalidad</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <th scope="row"></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
+                            <th scope="row"></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
+                            <th scope="row"></th>
+                            <td colspan="2"></td>
+                            <td></td>
                         </tr>
                     </tbody>
             </table>
