@@ -43,12 +43,12 @@
                 </div>
 
                 <div class="flex flex-row text-sm text-gray-400">
-                    <a href="/torneos">Torneos</a> > <a href="/torneo/{{$torneo->id}}">{{$torneo->nombre}}</a> > Equipos
+                    <a href="/torneos">Torneos</a> > <a href="/torneo/{{$torneo->idtorneo}}">{{$torneo->nombre}}</a> > Equipos
                 </div> 
 
                 <div class="flex flex-row justify-between items-center mt-6" style="margin-top: 25px;">
                     <h3 class="text-xl">Añade un equipo</h3>
-                    <a href="/torneo/{{$torneo->id}}/equipos/nuevo">
+                    <a href="/torneo/{{$torneo->idtorneo}}/equipos/nuevo">
                         <button
                             class="middle none center mr-4 rounded-lg bg-green-500 py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             data-ripple-light="true"
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="p-3 bg-gray-200 rounded-md"><img class="w-[54px]" src="{{$equipos[$i]->urllogo}}" alt=""></div>
                             </div>
-                            <a href="/torneo/{{$torneo->id}}/equipos/eliminar/{{$equipos[$i]->id}}">
+                            <a href="/torneo/{{$torneo->id}}/equipos/eliminar/{{$equipos[$i]->idtorneo}}">
                                 <button type="submit" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-red-500 to-red-600 text-sm hover:bg-gradient-to-l hover:from-red-600 hover:to-red-500 text-white p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500 mr-2">
                                     Eliminar <i class="fa-solid fa-trash ml-2"></i>
                                 </button>
@@ -95,7 +95,7 @@
                             <!-- Aquí puedes agregar los campos de edición -->
                             <h2>Editar información de equipos</h2>
                             <br>
-                            <form enctype="multipart/form-data" action="/torneo/{{$torneo->id}}/equipos/actualizar" method="POST">
+                            <form enctype="multipart/form-data" action="/torneo/{{$torneo->idtorneo}}/equipos/actualizar" method="POST">
                                 @csrf
                                 <input type="hidden" id="idequipo" name="idequipo" value="">
                                 <div class="mb-4">
@@ -133,9 +133,9 @@
                                     <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="idTorneo" required name="idTorneo">
                                         <!-- Primero el torneo actual del equipo-->
-                                        <option value="{{$torneo->id}}">Torneo Actual: {{$torneo->nombre}} o...</option>
+                                        <option value="{{$torneo->idtorneo}}">Torneo Actual: {{$torneo->nombre}} o...</option>
                                         @foreach ($torneos as $torneo)
-                                        <option value="{{ $torneo->id }}">{{ $torneo->nombre }}</option>
+                                        <option value="{{ $torneo->idtorneo }}">{{ $torneo->nombre }}</option>
                                         @endforeach
                                     </select>
                                 </div>

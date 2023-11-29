@@ -206,7 +206,7 @@ Crear nuevo torneo <i class="fa-solid fa-plus"></i>
                               @endif
                               </td>
                               <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                <a href="/torneo/{{$torneos[$i]->id}}" class="text-indigo-600 hover:text-indigo-900">Ver</a>
+                                <a href="/torneo/{{$torneos[$i]->idtorneo}}" class="text-indigo-600 hover:text-indigo-900">Ver</a>
                               </td>
                             </tr>
                             

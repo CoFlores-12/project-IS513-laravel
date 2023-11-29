@@ -249,5 +249,5 @@ class torneoController extends Controller
             //throw $th;
         }
         return redirect()->route('equipos.home', ['id'=>$id]);
-
+    }
 }
