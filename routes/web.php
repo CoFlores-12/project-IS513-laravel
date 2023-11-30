@@ -34,6 +34,7 @@ Route::get('/torneo/{id}', [torneoController::class, 'torneoHome'])->name('torne
 // ############## equipos ENDPOINTS ##############
 
 Route::get('/equipos', [EquiposCOntroller::class, 'equiposHome'])->name('equipos.home');
+Route::get('/equipo/{id}', [EquiposCOntroller::class, 'verEquipo'])->name('equipo.ver');
 Route::get('/equipos/nuevo', [EquiposCOntroller::class, 'nuevoEquipo'])->name('equipos.nuevo');
 Route::post('/equipos/guardar', [EquiposCOntroller::class, 'guardarEquipo'])->name('equipos.guardar');
 Route::get('/equipos/eliminar/{idEquipo}', [EquiposCOntroller::class, 'eliminarEquipo'])->name('equipos.eliminar');

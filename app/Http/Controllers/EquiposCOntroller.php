@@ -16,7 +16,6 @@ class EquiposCOntroller extends Controller
         $client = new Client();
         $response = null;
         $equipos = null;
-        $torneo = null;
         $torneos = null;
 
         try {
@@ -34,6 +33,10 @@ class EquiposCOntroller extends Controller
         }
 
         return view('equipos', ['response' => $response, 'equipos' => $equipos, 'torneos' => $torneos]);
+    }
+
+    public function verEquipo($id){
+        return view("equipo");
     }
     public function nuevoEquipo()
     {
@@ -68,7 +71,7 @@ class EquiposCOntroller extends Controller
             $file = $request->file('img');
             $filename = $file->getClientOriginalName();
             $file->move($destinationPath, $filename);
-            //$image = $filename; para probar un placeholder en su lugar
+            $image = $filename;
         }
 
         $client = new Client();

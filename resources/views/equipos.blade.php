@@ -68,11 +68,12 @@
                         <div class="p-4 animate__animated animate__bounceIn transition-shadow border rounded-lg shadow-sm hover:shadow-lg bg-white">
                             <div class="flex items-start justify-between">
                                 <div class="flex flex-col space-y-2">
-                                    <span class="text-lg-gray-600">{{$equipos[$i]->nombre}}</span>
+                                    <a href="/equipo/{{$equipos[$i]->idEquipo}}">
+                                    <span class="text-lg-gray-600">{{$equipos[$i]->nombre}}</span></a>
                                     <span class="text-sm font-semibold">{{$equipos[$i]->anioFundacion}}</span>
                                     <span class="text-sm font-semibold">{{$equipos[$i]->pais}}</span>
                                 </div>
-                                <div class="p-3 bg-gray-200 rounded-md"><img class="w-[54px]" src="{{$equipos[$i]->urllogo}}" alt=""></div>
+                                <div class="p-3 bg-gray-200 rounded-md"><img class="w-[54px]" src="/client/{{$equipos[$i]->urllogo}}" alt=""></div>
                             </div>
                             <a href="/equipos/eliminar/{{$equipos[$i]->idEquipo}}">
                                 <button type="submit" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-red-500 to-red-600 text-sm hover:bg-gradient-to-l hover:from-red-600 hover:to-red-500 text-white p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500 mr-2">
