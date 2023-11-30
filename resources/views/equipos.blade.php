@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipos: {{$torneo-> nombre }}</title>
+    <title>Equipos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/app.css">
     <script src="https://kit.fontawesome.com/1e8824e8c2.js" crossorigin="anonymous"></script>
@@ -39,16 +39,16 @@
                 <div
                     class="flex flex-col items-start justify-between pb-6 space-y-4 border-b lg:items-center lg:space-y-0 lg:flex-row"
                 >
-                    <h1 class="text-2xl font-semibold whitespace-nowrap">Equipos: {{$torneo-> nombre }}</h1>
+                    <h1 class="text-2xl font-semibold whitespace-nowrap">Equipos </h1>
                 </div>
 
                 <div class="flex flex-row text-sm text-gray-400">
-                    <a href="/torneos">Torneos</a> > <a href="/torneo/{{$torneo->idtorneo}}">{{$torneo->nombre}}</a> > Equipos
+                    <a href="/torneos">Torneos</a> 
                 </div> 
 
                 <div class="flex flex-row justify-between items-center mt-6" style="margin-top: 25px;">
                     <h3 class="text-xl">Añade un equipo</h3>
-                    <a href="/torneo/{{$torneo->idtorneo}}/equipos/nuevo">
+                    <a href="/equipos/nuevo">
                         <button
                             class="middle none center mr-4 rounded-lg bg-green-500 py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             data-ripple-light="true"
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="p-3 bg-gray-200 rounded-md"><img class="w-[54px]" src="{{$equipos[$i]->urllogo}}" alt=""></div>
                             </div>
-                            <a href="/torneo/{{$torneo->idtorneo}}/equipos/eliminar/{{$equipos[$i]->idEquipo}}">
+                            <a href="/equipos/eliminar/{{$equipos[$i]->idEquipo}}">
                                 <button type="submit" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-red-500 to-red-600 text-sm hover:bg-gradient-to-l hover:from-red-600 hover:to-red-500 text-white p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500 mr-2">
                                     Eliminar <i class="fa-solid fa-trash ml-2"></i>
                                 </button>
@@ -95,7 +95,7 @@
                             <!-- Aquí puedes agregar los campos de edición -->
                             <h2>Editar información de equipos</h2>
                             <br>
-                            <form enctype="multipart/form-data" action="/torneo/{{$torneo->idtorneo}}/equipos/actualizar" method="POST">
+                            <form enctype="multipart/form-data" action="/equipos/actualizar" method="POST">
                                 @csrf
                                 <input type="hidden" id="idequipo" name="idequipo" value="">
                                 <div class="mb-4">
@@ -133,7 +133,7 @@
                                     <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="idTorneo" required name="idTorneo">
                                         <!-- Primero el torneo actual del equipo-->
-                                        <option value="{{$torneo->idtorneo}}">Torneo Actual: {{$torneo->nombre}} o...</option>
+                                       
                                         @foreach ($torneos as $torneo)
                                         <option value="{{ $torneo->idtorneo }}">{{ $torneo->nombre }}</option>
                                         @endforeach

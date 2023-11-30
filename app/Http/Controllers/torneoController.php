@@ -120,10 +120,7 @@ class torneoController extends Controller
     {
         return view('clasificatoriaTorneo');
     }
-    public function agregarequipo()
-    {
-        return view('agregarEquipo');
-    }
+  
 
     // Equipos
 
@@ -198,13 +195,15 @@ class torneoController extends Controller
         }
 
         $client = new Client();
-        $response = $client->post('http://localhost:8080/api/equipos/create/'.$request->idTorneo, [
+        $response = $client->post('http://localhost:8080/api/equipos/create', [
             'json' => [
                 "nombre" => $request->nombre,
                 "anioFundacion" => $request->anioFundacion,
                 "pais" => $request->pais,
-                "urllogo" => $image,
-                "grupo"=> $request->grupo
+                "torneo" => $torneo,
+                "idTorneo" => $request->idTorneo,
+                "id_torneo" => $request->idTorneo,
+                "urllogo" => $image
             ]
         ]);
 

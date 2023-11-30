@@ -41,9 +41,9 @@
             </div>
 
             <!-- Sección derecha con formulario para crear el equipo -->
-            <div class="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full w-2/5 xl:w-2/5 p-8  md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white animate__animated animate__slideInRight">
+            <div class="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full xl:w-1/2 md:pl-14 md:pr-14 sm:rounded-lg md:rounded-none bg-white animate__animated animate__slideInRight">
                 <div class="max-w-md w-full">
-                    <form enctype="multipart/form-data" class="" action="/torneo/{{$torneo->idtorneo}}/equipos/guardar" method="POST">
+                    <form enctype="multipart/form-data" class="" action="/equipos/guardar" method="POST">
                         @csrf
                         <div class="relative flex flex-col items-center">
                             <label for="imgInp" style="text-align:center">
@@ -70,10 +70,21 @@
 
 
                             <select class="select w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-green-500" required name="idTorneo">
-                                <option value="{{$torneo->idtorneo}}">Torneo actual: {{$torneo->nombre}} o...</option>
                                 @foreach ($torneos as $torneo)
                                     <option value="{{ $torneo->idtorneo }}">{{ $torneo->nombre }}</option>
                                 @endforeach
+                            </select>
+
+                            <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Grupo</label>
+                            <select class="select w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-green-500" required name="grupo">
+                                <option value="A1">A1</option>
+                                <option value="A2">A2</option>
+                                <option value="B1">B1</option>
+                                <option value="B2">B2</option>
+                                <option value="C1">C1</option>
+                                <option value="C2">C2</option>
+                                <option value="D1">D1</option>
+                                <option value="D2">D2</option>
                             </select>
 
                         </div>

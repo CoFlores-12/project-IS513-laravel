@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EquiposCOntroller;
 use App\Http\Controllers\torneoController;
 use App\Http\Controllers\PersonaController;
 use Illuminate\Support\Facades\Route;
@@ -32,12 +33,13 @@ Route::get('/torneo/{id}', [torneoController::class, 'torneoHome'])->name('torne
 
 // ############## equipos ENDPOINTS ##############
 
-Route::get('/torneo/{id}/equipos', [torneoController::class, 'equiposHome'])->name('equipos.home');
-Route::get('/torneo/{id}/equipos/nuevo', [torneoController::class, 'nuevoEquipo'])->name('equipos.nuevo');
-Route::post('/torneo/{id}/equipos/guardar', [torneoController::class, 'guardarEquipo'])->name('equipos.guardar');
-Route::get('/torneo/{id}/equipos/editar/{idEquipo}', [torneoController::class, 'editarEquipo'])->name('equipos.editar');
-Route::post('/torneo/{id}/equipos/actualizar', [torneoController::class, 'actualizarEquipo'])->name('equipos.actualizar');
-Route::get('/torneo/{id}/equipos/eliminar/{idEquipo}', [torneoController::class, 'eliminarEquipo'])->name('equipos.eliminar');
+Route::get('/equipos', [EquiposCOntroller::class, 'equiposHome'])->name('equipos.home');
+Route::get('/equipos/nuevo', [EquiposCOntroller::class, 'nuevoEquipo'])->name('equipos.nuevo');
+Route::post('/equipos/guardar', [EquiposCOntroller::class, 'guardarEquipo'])->name('equipos.guardar');
+Route::get('/equipos/eliminar/{idEquipo}', [EquiposCOntroller::class, 'eliminarEquipo'])->name('equipos.eliminar');
+
+Route::get('/torneo/{id}/equipos/editar/{idEquipo}', [EquiposCOntroller::class, 'editarEquipo'])->name('equipos.editar');
+Route::post('/torneo/{id}/equipos/actualizar', [EquiposCOntroller::class, 'actualizarEquipo'])->name('equipos.actualizar');
 
 // ############## persona ENDPOINTS ##############
 
