@@ -59,6 +59,16 @@
                         <option value="3">Entrenador</option>
                     </select>
                 </div>
+                <div class="mt-8 content-center">
+                    <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
+                        A que equipo perteneces?
+                    </label>
+                    <select class="form-select" aria-label="Default select example" placeholder="Escoge tu rol">
+                        
+                        <option value="1">FCBarcelona</option>
+                        
+                    </select>
+                </div>
                 <div>
                     <button type="submit"
                         class="w-full flex mt-8 justify-center bg-gradient-to-r from-green-500 to-green-600  hover:bg-gradient-to-l hover:from-green-500 hover:to-green-600 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
