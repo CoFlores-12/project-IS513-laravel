@@ -49,6 +49,10 @@ Route::get('/historialDeJugador', function () {
     return view('historialDeJugador');
     
 });
+Route::get('/fichajeJugador', function () {
+    return view('fichajeJugador');
+    
+});
 
 Route::get('/test', function () {
    return date('F, o'); 

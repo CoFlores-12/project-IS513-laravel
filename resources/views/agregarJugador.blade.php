@@ -72,7 +72,7 @@
                 <div>
                     <button type="submit"
                         class="w-full flex mt-8 justify-center bg-gradient-to-r from-green-500 to-green-600  hover:bg-gradient-to-l hover:from-green-500 hover:to-green-600 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
-                        Actualizar
+                        crear
                     </button>
                 </div>
             </form>

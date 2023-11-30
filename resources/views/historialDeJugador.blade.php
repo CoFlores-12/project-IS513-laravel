@@ -52,10 +52,10 @@
                                 <div class=" text-center">
                                     <div class="row align-items-start">
                                         <div class="col">
-                                            Rit
+                                            Fis
                                         </div>
                                         <div class="col">
-                                            98
+                                            90
                                         </div>
 
                                     </div>
@@ -116,60 +116,6 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>
-                                <div class=" text-center">
-                                    <div class="row align-items-start">
-                                        <div class="col">
-                                            Fis
-                                        </div>
-                                        <div class="col">
-                                            90
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" text-center">
-                                    <div class="row align-items-start">
-                                        <div class="col">
-                                            Vel
-                                        </div>
-                                        <div class="col">
-                                            98
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>
-                                <div class=" text-center">
-                                    <div class="row align-items-start">
-                                        <div class="col">
-                                            Vel
-                                        </div>
-                                        <div class="col">
-                                            98
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class=" text-center">
-                                    <div class="row align-items-start">
-                                        <div class="col">
-                                            Vel
-                                        </div>
-                                        <div class="col">
-                                            98
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -201,10 +147,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <th scope="row"><a href="/fichajeJugador" class="btn btn-primary">transferir</a></th>
+                            <td>fcbarcelona</td>
+                            <td>45,000$</td>
+                            <td>Polonnia</td>
                         </tr>
                         <tr>
                             <th scope="row"></th>
