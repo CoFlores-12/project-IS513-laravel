@@ -15,7 +15,7 @@
     <div class="container flex justify-center items-center h-full">
 
         <div class="card w-full md:w-[50%] ">
-            <form enctype="multipart/form-data" class="" action="/persona/guardar" method="POST">
+            <form enctype="multipart/form-data" class="" action="/persona/crear" method="POST">
                 @csrf
                 <div class="relative flex flex-col items-center">
                     <label for="imgInp" style="text-align:center"> <label
