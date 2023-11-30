@@ -14,22 +14,28 @@ class torneoController extends Controller
         $client = new Client(['base_uri' => 'http://localhost:8080/api/torneos/']);
         $response = "null";
         $torneos = [];
+        $countEquipos = 0;
+        $countJugadores = 0;
         try {
             $response = $client->request('GET', 'test');
             $torneos = $client->request('GET', '');
+            $countEquipos = $client->get('http://localhost:8080/api/equipos/getCount')->getBody();
+            $countJugadores = $client->get('http://localhost:8080/api/personas/getCount')->getBody();
         } catch (\Throwable $th) {
-            return view('torneos', ['response' => $response, 'torneos' => $torneos]);
+            return view('torneos', ['response' => $response, 'torneos' => $torneos, 'countEquipos' => $countEquipos]);
         }
-        return view('torneos', ['response' => $response, 'torneos' => \json_decode($torneos->getBody())]);
+        return view('torneos', ['response' => $response, 'torneos' => \json_decode($torneos->getBody()), 'countEquipos' => $countEquipos, 'countJugadores' => $countJugadores]);
     }
     public function torneoHome($id)
     {
         $client = new Client(['base_uri' => 'http://localhost:8080/api/torneos/']);
         $torneo = [];
         $torneos = [];
+       
         try {
             $torneo = $client->request('GET', 'id/' . $id);
             $torneos = $client->request('GET', '');
+            
             //code...
         } catch (\Throwable $th) {
             //throw $th;

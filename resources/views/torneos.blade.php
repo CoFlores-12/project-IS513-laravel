@@ -108,24 +108,24 @@
                   <div class="p-3 bg-gray-200 rounded-md"><img class="w-[54px]" src="/img/4048969.png" alt=""></div>
                 </div>
               </div>
-              <div class="p-4 animate__animated animate__bounceIn transition-shadow border rounded-lg shadow-sm hover:shadow-lg bg-white">
+              <a href="/equipos" class="p-4 animate__animated animate__bounceIn transition-shadow border rounded-lg shadow-sm hover:shadow-lg bg-white">
                 <div class="flex items-start justify-between">
                   <div class="flex flex-col space-y-2">
                     <span class="text-gray-400">Total Equipos</span>
-                    <span class="text-lg font-semibold">10</span>
+                    <span class="text-lg font-semibold">{{$countEquipos}}</span>
                   </div>
                   <div class="p-3 bg-gray-200 rounded-md"><img class="w-[54px]" src="/img/5042057.png" alt=""></div>
                 </div>
-              </div>
-              <div class="p-4 animate__animated animate__bounceIn transition-shadow border rounded-lg shadow-sm hover:shadow-lg bg-white">
+              </a>
+              <a href="/jugadores" class="p-4 animate__animated animate__bounceIn transition-shadow border rounded-lg shadow-sm hover:shadow-lg bg-white">
                 <div class="flex items-start justify-between">
                   <div class="flex flex-col space-y-2">
                     <span class="text-gray-400">Total Jugadores</span>
-                    <span class="text-lg font-semibold">221</span>
+                    <span class="text-lg font-semibold">{{$countJugadores}}</span>
                   </div>
                   <div class="p-3 bg-gray-200 rounded-md"><img class="w-[54px]" src="/img/soccer_player_icon_125840.png" alt=""></div>
                 </div>
-              </div>
+              </a>
              
           </div>
 

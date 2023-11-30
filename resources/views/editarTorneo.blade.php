@@ -18,7 +18,7 @@
         <form id="myform" enctype="multipart/form-data" class="card p-3 bg-white shadow-md  animate__animated animate__bounceInDown" action="/torneos/actualizar" method="post">
             @csrf
 
-            <input type="hidden" name="id" value="{{$torneo->id}}">
+            <input type="hidden" name="id" value="{{$torneo->idtorneo}}">
             <input type="hidden" name="fecha" value="{{$torneo->fecha}}">
             <input type="hidden" name="logo" value="{{$torneo->logo}}">
             <input type="hidden" name="logoChanged" value="0" id="logoChanged">

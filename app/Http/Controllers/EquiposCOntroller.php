@@ -75,7 +75,6 @@ class EquiposCOntroller extends Controller
         }
 
         $client = new Client();
-        //TODO: implement endpoint
         $response = $client->post('http://localhost:8080/api/equipos/create/'.$request->idTorneo, [
             'json' => [
                 "nombre" => $request->nombre,
