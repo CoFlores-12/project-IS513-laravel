@@ -198,15 +198,13 @@ class torneoController extends Controller
         }
 
         $client = new Client();
-        $response = $client->post('http://localhost:8080/api/equipos/create', [
+        $response = $client->post('http://localhost:8080/api/equipos/create/'.$request->idTorneo, [
             'json' => [
                 "nombre" => $request->nombre,
                 "anioFundacion" => $request->anioFundacion,
                 "pais" => $request->pais,
-                "torneo" => $torneo,
-                "idTorneo" => $request->idTorneo,
-                "id_torneo" => $request->idTorneo,
-                "urllogo" => $image
+                "urllogo" => $image,
+                "grupo"=> $request->grupo
             ]
         ]);
 
