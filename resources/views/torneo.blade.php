@@ -20,12 +20,12 @@
     <div class="flex absolute right-10 mt-2 justify-end">
         <button onclick="toggleModal()" class="bg-white p-2 rounded-md px-3"><i class="fa-solid fa-x"></i></button>
     </div>
-    <iframe src="/torneos/clasificatoria/{{$torneo->id}}" class="w-full h-full" frameborder="0"></iframe>
+    <iframe src="/torneos/clasificatoria/{{$torneo->idtorneo}}" class="w-full h-full" frameborder="0"></iframe>
 </div>
     <main class="flex flex-row  sm:p-2 md:p-10 justify-center ">
         <div class="leagues animate__animated animate__fadeInLeft bg-white px-2 w-[100%] md:w-[20%] shadow-sm rounded-md py-2 hidden md:inline">
             @for($i = 0; $i < 5 && $i < count($torneos); $i++)
-                <a href="/torneo/{{$torneos[$i]->id}}">
+                <a href="/torneo/{{$torneos[$i]->idtorneo}}">
                     <div class="lea py-2 flex flex-row"> 
                         <img class="w-[20px] mx-2" src="/client/{{$torneos[$i]->logo}}" alt="avatar" />
                         {{$torneos[$i]->nombre}}
@@ -52,14 +52,14 @@
             </div>
             <div class="flex flex-row items-center justify-end ">
 
-            <a href="/torneos/eliminar/{{$torneo->id}}">
+            <a href="/torneos/eliminar/{{$torneo->idtorneo}}">
            <button type="submit" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-red-500 to-red-600 text-sm hover:bg-gradient-to-l hover:from-red-600 hover:to-red-500 text-white p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500 mr-2">
                 Eliminar <i class="fa-solid fa-trash ml-2"></i>
               </button>
            </a>
 
 
-           <a href="/torneos/editar/{{$torneo->id}}">
+           <a href="/torneos/editar/{{$torneo->idtorneo}}">
            <button type="submit" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-white text-sm hover:bg-gradient-to-l hover:from-white- hover:to-white text-black p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500 mr-2">
                 Editar <i class="fa-solid fa-pen-to-square ml-2"></i>
               </button>

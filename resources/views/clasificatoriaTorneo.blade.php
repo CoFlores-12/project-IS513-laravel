@@ -48,6 +48,8 @@
 </head>
 <body>
 
+    <a href="/torneo/jugar">Iniciar juego</a>
+
    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.39 429.24">
    <defs>
    <style>
@@ -98,30 +100,6 @@
    <text class="cls-27" transform="translate(79.31 397.21)">Team 3</text>
    <text class="cls-27" transform="translate(79.31 413.89)">Team 4</text>
    </g>
-    <g>
-    <!-- #1 -->
-    <text class="cls-24" transform="translate(30.15 130.81)">Iniciar 1</text>
-    
-    <!-- #2 -->
-    <text class="cls-24" transform="translate(30.15 256.26)">Iniciar 2</text>
-    
-    <!-- #3 -->
-    <text class="cls-24" transform="translate(147.57 193.09)">Iniciar 3</text>
-    
-    <!-- #4 -->
-    <text class="cls-24" transform="translate(310.30 215.215)">Iniciar 4</text>
-    
-    <!-- #5 -->
-    <text class="cls-24" transform="translate(454.98 193.09)">Iniciar 5</text>
-
-    <!-- #6 -->
-    <text class="cls-24" transform="translate(572.39 130.81)">Iniciar 6</text>
-    
-    <!-- #7 -->
-   <text class="cls-24" transform="translate(572.39 256.26)">Iniciar 7</text>
-   
-
-    </g>
 
 </g></svg>
    
