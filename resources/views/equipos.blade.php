@@ -74,13 +74,13 @@
                                 </div>
                                 <div class="p-3 bg-gray-200 rounded-md"><img class="w-[54px]" src="{{$equipos[$i]->urllogo}}" alt=""></div>
                             </div>
-                            <a href="/torneo/{{$torneo->id}}/equipos/eliminar/{{$equipos[$i]->idtorneo}}">
+                            <a href="/torneo/{{$torneo->idtorneo}}/equipos/eliminar/{{$equipos[$i]->idEquipo}}">
                                 <button type="submit" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-red-500 to-red-600 text-sm hover:bg-gradient-to-l hover:from-red-600 hover:to-red-500 text-white p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500 mr-2">
                                     Eliminar <i class="fa-solid fa-trash ml-2"></i>
                                 </button>
                             </a>
 
-                            <button type="button" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-white text-sm hover:bg-gradient-to-l hover:from-white- hover:to-white text-black p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500 mr-2" onclick="openEditModal({{$equipos[$i]->id}})">
+                            <button type="button" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-white text-sm hover:bg-gradient-to-l hover:from-white- hover:to-white text-black p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500 mr-2" onclick="openEditModal({{$equipos[$i]->idEquipo}})">
                                 Editar <i class="fa-solid fa-pen-to-square ml-2"></i>
                             </button>
                         </div>

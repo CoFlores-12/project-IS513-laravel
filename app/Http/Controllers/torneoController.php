@@ -154,7 +154,7 @@ class torneoController extends Controller
             $equipos = array_values($equipos);
 
         } catch (\Throwable $th) {
-            return view('equipos', ['response' => $response, 'equipos' => $equipos, 'torneo' => $torneo]);
+            return view('equipos', ['response' => $response, 'equipos' => $equipos, 'torneo' => $torneo, 'torneos' => $torneos]);
         }
 
         return view('equipos', ['response' => $response, 'equipos' => $equipos, 'torneo' => $torneo, 'torneos' => $torneos]);
@@ -266,4 +266,5 @@ class torneoController extends Controller
         }
         return redirect()->route('equipos.home', ['id'=>$id]);
 
+}
 }
