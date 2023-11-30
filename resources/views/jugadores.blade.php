@@ -15,7 +15,13 @@
 <body>
 <style>
   .card{
-   min-height:456px !important;
+   height:456px !important;
+   max-height: 456px !important;
+   overflow: hidden;
+   margin-top: 10px;
+  }
+  .card  >img {
+    height: 60% !important
   }
 </style>
     <div class="container text-center">
@@ -29,6 +35,7 @@
                   <i class="fa-solid fa-user-plus " ></i>
 
                 </div>
+                <!-- TODO: hacerlo dinamico desde el backend -->
                     <div class="card-body flex flex-col justify-center content-center ">
                      
                        <a href="/persona/crear"><button

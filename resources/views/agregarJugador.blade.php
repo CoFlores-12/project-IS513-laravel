@@ -64,7 +64,7 @@
                         A que equipo perteneces?
                     </label>
                     <select class="form-select" aria-label="Default select example" placeholder="Escoge tu rol">
-                        
+                        <!-- TODO: hacerlo dinamico desde el backend -->
                         <option value="1">FCBarcelona</option>
                         
                     </select>

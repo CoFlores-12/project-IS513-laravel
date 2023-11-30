@@ -44,9 +44,10 @@ Route::post('/torneo/{id}/equipos/actualizar', [EquiposCOntroller::class, 'actua
 // ############## persona ENDPOINTS ##############
 
 Route::get('/persona/crear', [PersonaController::class, 'crearPersona'])->name('persona.crear');
+Route::post('/persona/guardar', [PersonaController::class, 'guardarPersona'])->name('persona.guardar');
 Route::get('/jugadores', function () {
     return view('jugadores');
-});
+})->name('jugadores');
 Route::get('/historialDeJugador', function () {
     return view('historialDeJugador');
     
