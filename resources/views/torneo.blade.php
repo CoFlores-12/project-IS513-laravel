@@ -16,9 +16,14 @@
   />
 </head>
 <body>
-<div id="gameCont" class="hidden p-3 absolute top-0 w-full h-full bg-white z-50">
-    <div class="flex absolute right-10 mt-2 justify-end">
-        <button onclick="toggleModal()" class="bg-white p-2 rounded-md px-3"><i class="fa-solid fa-x"></i></button>
+<div id="gameCont" class="hidden p-0 fixed top-0 w-full h-full bg-white z-50">
+    <div class="flex justify-center">
+        <a href="/torneo/jugar/{{$torneo->idtorneo}}"> <button class="w-full flex justify-center bg-gradient-to-r from-green-500 to-green-600  hover:bg-gradient-to-l hover:from-green-500 hover:to-green-600 text-gray-100 p-2 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500">
+                Simular juego
+              </button></a>
+              <div class="flex  absolute right-10 mt-2 justify-end">
+                  <button onclick="toggleModal()" class="bg-gray-300 p-2 rounded-md px-3"><i class="fa-solid fa-x"></i></button>
+              </div>
     </div>
     <iframe src="/torneos/clasificatoria/{{$torneo->idtorneo}}" class="w-full h-full" frameborder="0"></iframe>
 </div>
