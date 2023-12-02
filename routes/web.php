@@ -45,12 +45,9 @@ Route::post('/torneo/{id}/equipos/actualizar', [EquiposCOntroller::class, 'actua
 
 // ############## persona ENDPOINTS ##############
 
-Route::get('/persona/crear', [PersonaController::class, 'crearPersona'])->name('persona.crear');
-Route::post('/persona/guardar', [PersonaController::class, 'guardarPersona'])->name('persona.guardar');
-Route::get('/jugadores', function () {
-    return view('jugadores');
-})->name('jugadores');
-Route::get('/historialDeJugador', function () {
-    return view('historialDeJugador');
-    
-});
+Route::get('/personas/crear', [PersonaController::class, 'crearPersona'])->name('persona.crear');
+Route::post('/persona/crear', [PersonaController::class, 'guardarPersona'])->name('persona.guardar');
+Route::get('/jugadores', [PersonaController::class, 'verPersonas'])->name('jugadores');
+Route::get('/persona/{id}',  [PersonaController::class, 'verPersona']);
+Route::get('/persona/transferir/{id}',  [PersonaController::class, 'transferirPersona']);
+Route::post('/persona/transferir',  [PersonaController::class, 'transferirPersonaPost']);

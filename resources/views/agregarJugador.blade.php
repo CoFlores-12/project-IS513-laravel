@@ -52,27 +52,26 @@
                     <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                         Escoge tú rol
                     </label>
-                    <select class="form-select" aria-label="Default select example" placeholder="Escoge tu rol">
-                        
-                        <option value="1">Arbitro</option>
-                        <option value="2">Jugador</option>
-                        <option value="3">Entrenador</option>
+                    <select name="idrol" class="form-select" aria-label="Default select example" placeholder="Escoge tu rol">
+                        @foreach ($roles as $rol)
+                            <option value="{{$rol->idrol}}">{{$rol->descripcion}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="mt-8 content-center">
                     <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                         A que equipo perteneces?
                     </label>
-                    <select class="form-select" aria-label="Default select example" placeholder="Escoge tu rol">
-                        <!-- TODO: hacerlo dinamico desde el backend -->
-                        <option value="1">FCBarcelona</option>
-                        
+                    <select name="idequipo" class="form-select" aria-label="Default select example" placeholder="Escoge tu rol">
+                        @foreach ($equipos as $equipo)
+                            <option value="{{$equipo->idEquipo}}">{{$equipo->nombre}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div>
                     <button type="submit"
                         class="w-full flex mt-8 justify-center bg-gradient-to-r from-green-500 to-green-600  hover:bg-gradient-to-l hover:from-green-500 hover:to-green-600 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
-                        Actualizar
+                        Crear
                     </button>
                 </div>
             </form>
