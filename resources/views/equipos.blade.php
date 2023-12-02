@@ -75,6 +75,12 @@
                                 </div>
                                 <div class="p-3 bg-gray-200 rounded-md"><img class="w-[54px]" src="/client/{{$equipos[$i]->urllogo}}" alt=""></div>
                             </div>
+                            <a href="/equipo/{{$equipos[$i]->idEquipo}}">
+                                <button type="button" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-green-500 to-green-600  hover:bg-gradient-to-l hover:from-green-500 hover:to-green-600 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500 mr-2" style="margin-top: 1rem;">
+                                    Ver <i class="fa-solid fa-eye ml-2"></i>
+                                </button>
+                            </a>
+
                             <a href="/equipos/eliminar/{{$equipos[$i]->idEquipo}}">
                                 <button type="submit" class="px-3 py-2 flex items-center justify-center bg-gradient-to-r from-red-500 to-red-600 text-sm hover:bg-gradient-to-l hover:from-red-600 hover:to-red-500 text-white p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500 mr-2">
                                     Eliminar <i class="fa-solid fa-trash ml-2"></i>
@@ -92,7 +98,7 @@
 
                 <!-- Modal de edición -->
                 <div id="editModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 animate__animated animate__fadeIn">
-                        <div class="bg-white p-4 rounded-lg">
+                    <div class="bg-white p-4 w-96 h-96 overflow-scroll">
                             <!-- Aquí puedes agregar los campos de edición -->
                             <h2>Editar información de equipos</h2>
                             <br>
@@ -107,6 +113,29 @@
                                         id="name" type="text" required name="name">
                                 </div>
                                 <div class="mb-4">
+                                    <label class="block text-gray-700 text sm font-bold mb-2" for="grupo">
+                                        Grupo
+                                    </label>
+                                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="grupo" required name="grupo">
+                                        <option value="A1">A1</option>
+                                        <option value="A2">A2</option>
+                                        <option value="B1">B1</option>
+                                        <option value="B2">B2</option>
+                                        <option value="C1">C1</option>
+                                        <option value="C2">C2</option>
+                                        <option value="D1">D1</option>
+                                        <option value="D2">D2</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="urllogo">
+                                        Puntos
+                                    </label>
+                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="puntos" type="number" required name="puntos">
+                                </div>
+                                <div class="mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2" for="urllogo">
                                         URL del logo
                                     </label>
@@ -118,7 +147,7 @@
                                         Año de fundación
                                     </label>
                                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        id="anioFundacion" type="number" required name="anioFundacion">
+                                        id="anioFundacion" type="text" required name="anioFundacion">
                                 </div>
                                 <div class="mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2" for="pais">
@@ -163,7 +192,7 @@
                             var equipoS = <?php echo json_encode($equipos); ?>;
 
                             // Buscar el equipo en el arreglo
-                            var equipo = equipoS.find(equipo => equipo.id == equipoId);
+                            var equipo = equipoS.find(equipo => equipo.idEquipo == equipoId);
 
                             // Mostrar el modal de edición
                             document.getElementById('editModal').classList.remove('hidden');
@@ -171,6 +200,8 @@
 
                             document.getElementById('idequipo').value = equipo.id;
                             document.getElementById('name').value = equipo.nombre;
+                            document.getElementById('grupo').value = equipo.grupo;
+                            document.getElementById('puntos').value = equipo.puntos;
                             document.getElementById('urllogo').value = equipo.urllogo;
                             document.getElementById('anioFundacion').value = equipo.anioFundacion;
                             document.getElementById('pais').value = equipo.pais;
