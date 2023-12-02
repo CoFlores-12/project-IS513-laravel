@@ -31,7 +31,7 @@
                 </div>
                     <div class="card-body flex flex-col justify-center content-center ">
                      
-                       <a href="/persona/crear"><button
+                       <a href="/jugadores"><button
                             class="middle none center mr-4 rounded-lg bg-green-500 py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             data-ripple-light="true">
                             Añadir jugador <i class="fa-solid fa-plus"></i>
@@ -40,17 +40,18 @@
                 </div>
             </div>
             <div class="col">
+            
+
                 <div class="card" style="width: 18rem;">
-                    <img src="https://img.a.transfermarkt.technology/portrait/big/38253-1701118759.jpg?lm=1" class="card-img-top" alt="...">
+                    <img src="/img/iconsoccer.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Robert Lewandoski</h5>
-                        <p class="card-text">Posición principal :
-Delantero centro
-Posición secundaria:
-Mediapunta</p>
+                        <h5 class="card-title">nombre</h5>
+                        <p class="card-text">descripcion</p>
                         <a href="/historialDeJugador" class="btn btn-primary">Ver perfil</a>
                     </div>
                 </div>
+             
+
             </div>
             <div class="col">
                 <div class="card" style="width: 18rem;">

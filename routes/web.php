@@ -41,10 +41,16 @@ Route::get('/torneo/{id}/equipos/eliminar/{idEquipo}', [torneoController::class,
 
 // ############## persona ENDPOINTS ##############
 
+Route::get('/jugadores', [PersonaController::class, 'personasHome'])->name('persona.home');
 Route::get('/persona/crear', [PersonaController::class, 'crearPersona'])->name('persona.crear');
+//Route::get('/persona/eliminar', [PersonaController::class, 'eliminarPersona'])->name('persona.eliminar');
+//Route::get('/persona/editar', [PersonaController::class, 'EditarEquipo'])->name('equipos.editar');
+//route:post('/fichajeJugador',[PersonaController::class,'historialJugador])->('persona.actualizar);
+/*
 Route::get('/jugadores', function () {
     return view('jugadores');
 });
+ */
 Route::get('/historialDeJugador', function () {
     return view('historialDeJugador');
     
