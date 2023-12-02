@@ -127,7 +127,7 @@ rel="stylesheet" />
               <tr>
                 <td>{{$partido->fecha}}</td>
                 <th class="font-light flex justify-end text-right flex-row"><img class="w-[24px] h-[24px] mr-2" src="/client/{{$partido->equipo1->urllogo}}" alt="">{{$partido->equipo1->nombre}}</th>
-                <td class="w-[70px] text-center font-bold">{{$partido->golesequipo1}} - {{$partido->golesequipo1}}</td>
+                <td class="w-[70px] text-center font-bold">{{$partido->golesequipo1}} - {{$partido->golesequipo2}}</td>
                 <th class="font-light flex flex-row"><img class="w-[24px] h-[24px] mr-2" src="/client/{{$partido->equipo2->urllogo}}" alt="">{{$partido->equipo2->nombre}}</th>
               </tr>
             @endforeach

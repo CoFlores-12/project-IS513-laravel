@@ -23,7 +23,7 @@
                             Foto
                         </label><img id="blah" class="w-[110px] h-[110px] shadow-md m-3 rounded-md" src="/img/blank.png"
                             alt=""></label>
-                    <input type="file" accept=".png,.jpg,.jpeg" class="w-[0.01px] h-[0.01px]" name="img" required
+                    <input type="file" accept=".png,.jpg,.jpeg,.webp" class="w-[0.01px] h-[0.01px]" name="img" required
                         id="imgInp">
                 </div>
                 <div class="relative">
