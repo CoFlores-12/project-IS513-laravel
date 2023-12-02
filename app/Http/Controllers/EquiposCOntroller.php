@@ -19,9 +19,9 @@ class EquiposCOntroller extends Controller
         $torneos = null;
 
         try {
-            $response = $client->get('http://localhost:8080/api/torneos/test');
-            $equipos = $client->get('http://localhost:8080/api/equipos/get');
-            $torneos = $client->get('http://localhost:8080/api/torneos/');
+            $response = $client->get('http://192.168.196.85:8090/api/torneos/test');
+            $equipos = $client->get('http://192.168.196.85:8090/api/equipos/get');
+            $torneos = $client->get('http://192.168.196.85:8090/api/torneos/');
             $equipos = json_decode($equipos->getBody(), null);
             $torneos = json_decode($torneos->getBody(), null);
 
@@ -36,7 +36,27 @@ class EquiposCOntroller extends Controller
     }
 
     public function verEquipo($id){
-        return view("equipo");
+        
+        $client = new Client();
+        $response = null;
+        $equipo = null;
+        $torneo = null;
+
+        try {
+            $response = $client->get('http://192.168.196.85:8090/api/equipos/get/' . $id);
+            $equipo = json_decode($response->getBody(), null);
+
+            $torneo = $client->get('http://192.168.196.85:8090/api/torneos/');
+            $torneo = json_decode($torneo->getBody(), null);
+            $torneo = $torneo[0];
+
+            //muestra en consola el equipo
+            //rdd($equipo);
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        return view('equipo', ['equipo' => $equipo, 'torneo' => $torneo]);
     }
     public function nuevoEquipo()
     {
@@ -45,7 +65,7 @@ class EquiposCOntroller extends Controller
         $client = new Client();
 
         try {
-            $torneos = $client->get('http://localhost:8080/api/torneos/');
+            $torneos = $client->get('http://192.168.196.85:8090/api/torneos/');
             $torneos = json_decode($torneos->getBody(), null);
             //code...
         } catch (\Throwable $th) {
@@ -61,11 +81,11 @@ class EquiposCOntroller extends Controller
         $torneo = null;
 
         $client = new Client();
-        $torneo = $client->get('http://localhost:8080/api/torneos/id/' . $request->idTorneo);
+        $torneo = $client->get('http://192.168.196.85:8090/api/torneos/id/' . $request->idTorneo);
         $torneo = json_decode($torneo->getBody(), null);
 
 
-        $image = 'https://cdn2.iconfinder.com/data/icons/flat-pro-imaging-set-2/32/image-canvas-512.png';
+        //$image = 'https://cdn2.iconfinder.com/data/icons/flat-pro-imaging-set-2/32/image-canvas-512.png';
         if ($request->hasFile('img')) {
             $destinationPath = 'client';
             $file = $request->file('img');
@@ -75,13 +95,14 @@ class EquiposCOntroller extends Controller
         }
 
         $client = new Client();
-        $response = $client->post('http://localhost:8080/api/equipos/create/'.$request->idTorneo, [
+        $response = $client->post('http://192.168.196.85:8090/api/equipos/create/'.$request->idTorneo, [
             'json' => [
                 "nombre" => $request->nombre,
                 "anioFundacion" => $request->anioFundacion,
                 "pais" => $request->pais,
                 "urllogo" => $image,
                 "grupo" => $request->grupo,
+                "puntos" => 0,
             ]
         ]);
 
@@ -108,14 +129,20 @@ class EquiposCOntroller extends Controller
         $torneo = null;
 
         try {
-            $torneo = $Client->get('http://localhost:8080/api/torneos/id/' . $request->idTorneo);
+            $torneo = $Client->get('http://192.168.196.85:8090/api/torneos/id/' . $request->idTorneo);
             $torneo = json_decode($torneo->getBody(), null);
 
-            $Client->put('http://localhost:8080/api/equipos/update/' . $request->idequipo, [
+            //convierte idTorneo y puntos a int
+            $puntosINT= (int)$request->puntos;
+
+            //convierte anioFundacion a string
+            $anioFundacionSTR= (string)$request->anioFundacion;
+
+            $Client->put('http://192.168.196.85:8090/api/equipos/update/' . $request->idequipo, [
                 'json' => [
                     "nombre" => $request->name,
-                    "idTorneo" => $request->idTorneo,
-                    "torneo" => $torneo,
+                    "grupo" => $request->grupo,
+                    "puntos" => $puntosINT,
                     "urllogo" => $request->urllogo,
                     "anioFundacion" => $request->anioFundacion,
                     "pais" => $request->pais
@@ -125,7 +152,7 @@ class EquiposCOntroller extends Controller
         } catch (\Throwable $th) {
             //throw $th;
         }
-        return redirect()->route('equipos.home', ['id' => $request->idTorneo]);
+        return redirect()->route('equipos.home');
     }
 
     public function eliminarEquipo($idEquipo)
@@ -134,7 +161,7 @@ class EquiposCOntroller extends Controller
         $Client = new Client();
 
         try {
-            $Client->delete('http://localhost:8080/api/equipos/delete/' . $idEquipo);
+            $Client->delete('http://192.168.196.85:8090/api/equipos/delete/' . $idEquipo);
             //code...
         } catch (\Throwable $th) {
             //throw $th;
@@ -142,4 +169,27 @@ class EquiposCOntroller extends Controller
         return redirect()->route('equipos.home');
 
 }
+
+    public function jugadoresEquipo($id)
+    {
+        $client = new Client();
+        $response = null;
+        $equipo = null;
+        $jugadores = null;
+
+        try {
+            $response = $client->get('http://192.168.196.85:8090/api/equipos/get/' . $id);
+            $equipo = json_decode($response->getBody(), null);
+
+            $jugadores= $equipo->personas;
+
+            //dd($equipo);
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        return view('jugadoresEquipo', ['equipo' => $equipo]);
+    }
+
 }
+            
