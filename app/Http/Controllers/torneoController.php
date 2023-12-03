@@ -31,16 +31,20 @@ class torneoController extends Controller
         $client = new Client(['base_uri' => 'http://localhost:8080/api/torneos/']);
         $torneo = [];
         $torneos = [];
+        $partidos = "[]";
+        $equiposOrder = "[]";
        
         try {
             $torneo = $client->request('GET', 'id/' . $id);
             $torneos = $client->request('GET', '');
+            $partidos = $client->request('GET', 'getPartidos/' . $id);
+            $equiposOrder = $client->request('GET', 'getEquipos/' . $id);
             
             //code...
         } catch (\Throwable $th) {
             //throw $th;
         }
-        return view('torneo', ['torneo' => \json_decode($torneo->getBody()), 'torneos' => \json_decode($torneos->getBody())]);
+        return view('torneo', ['torneo' => \json_decode($torneo->getBody()), 'torneos' => \json_decode($torneos->getBody()), 'partidos' => \json_decode($partidos->getBody()), 'equiposOrder' => \json_decode($equiposOrder->getBody())]);
     }
 
     public function torneoEdit($id)

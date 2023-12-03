@@ -18,12 +18,15 @@
 <body>
 <div id="gameCont" class="hidden p-0 fixed top-0 w-full h-full bg-white z-50">
     <div class="flex justify-center">
+        @if($torneo->estado == 1)
         <a href="/torneo/jugar/{{$torneo->idtorneo}}"> <button class="w-full flex justify-center bg-gradient-to-r from-green-500 to-green-600  hover:bg-gradient-to-l hover:from-green-500 hover:to-green-600 text-gray-100 p-2 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500">
                 Simular juego
               </button></a>
+        @endif
               <div class="flex  absolute right-10 mt-2 justify-end">
                   <button onclick="toggleModal()" class="bg-gray-300 p-2 rounded-md px-3"><i class="fa-solid fa-x"></i></button>
               </div>
+        
     </div>
     <iframe src="/torneos/clasificatoria/{{$torneo->idtorneo}}" class="w-full h-full" frameborder="0"></iframe>
 </div>
@@ -79,7 +82,6 @@
                 <div class="p-2 ittab activetab" onclick="changetab('resCont', this)">Resultados</div>
                 <div class="p-2 ittab" onclick="changetab('staCont', this)">Posiciones</div>
                 <div class="p-2 ittab" onclick="changetab('teamscont', this)">Equipos</div>
-                <div class="p-2 ittab" onclick="changetab('posCont', this)">Top</div>
                 <div class="p-2 ittab" onclick="toggleModal()">Clasificatoria</div>
             </div>
             <div class="container animate__fadeInUp animate__animated bg-white w-full">
@@ -87,14 +89,13 @@
                 <div id="resCont" class="p-3">
                     <table class="w-full">
                         <tbody>
+                            @foreach($partidos as $partido)
                             <tr class="p-3">
-                                <td class="text-right font-light">Equipo 1</td>
-                                <td class="w-[70px] text-center font-bold">0 - 1</td>
-                                <td class="font-light">Equipo 2</td>
-                                <td> <button type="submit" class="w-full flex justify-center bg-gradient-to-r from-green-500 to-green-600  hover:bg-gradient-to-l hover:from-green-500 hover:to-green-600 text-gray-100 p-0 my-2 rounded-full tracking-wide font-semibold  shadow-sm cursor-pointer transition ease-in duration-500">
-                Info
-              </button></td>
+                                <td class="text-right font-light flex flex-row justify-end">{{$partido->equipo1->nombre}}<img class="w-[24px] h-[24px] ml-2" src="/client/{{$partido->equipo1->urllogo}}" alt=""></td>
+                                <td class="w-[70px] text-center font-bold">{{$partido->golesequipo1}} - {{$partido->golesequipo2}}</td>
+                                <td class="font-light flex flex-row"><img class="w-[24px] h-[24px] mr-2" src="/client/{{$partido->equipo2->urllogo}}" alt="">{{$partido->equipo2->nombre}}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -104,23 +105,15 @@
                             <tr>
                                 <td class="text-center">#</td>
                                 <td>Equipo</td>
-                                <td class="text-center">PT</td>
-                                <td class="text-center">E</td>
-                                <td class="text-center">G</td>
-                                <td class="text-center">P</td>
                                 <td class="text-center">PTS</td>
                             </tr>
                         </thead>
                         <tbody class="posTable">
-                            @for($i=1; $i <= 10; $i++)
+                            @for($i=0; $i < count($equiposOrder); $i++)
                             <tr class="hover:bg-gray-50 my-2">
-                                <td class="text-center">{{$i}}</td>
-                                <td class="flex flex-row items-center"> <img class="w-[15px] mx-3" src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Lilly" alt=""> Equipo {{$i}}</td>
-                                <td class="text-center">{{rand(5-$i,9-$i)}}</td>
-                                <td class="text-center">{{rand(5-$i,9-$i)}}</td>
-                                <td class="text-center">{{rand(5-$i,9-$i)}}</td>
-                                <td class="text-center">{{rand(5-$i,9-$i)}}</td>
-                                <td class="text-center">{{rand(5-$i,9-$i)}}</td>
+                                <td class="text-center">{{$i+1}}</td>
+                                <td class="flex flex-row items-center"> <img class="w-[15px] mx-3" src="/client/{{$equiposOrder[$i]->urllogo}}" alt="">{{$equiposOrder[$i]->nombre}}</td>
+                                <td class="text-center">{{$equiposOrder[$i]->puntos}}</td>
                             </tr>
                             @endfor
                         </tbody>
@@ -128,26 +121,12 @@
                 </div>
                 <div id="posCont" class="hidden p-3"></div>
                 <div id="teamscont" class="grid grid-cols-2 md:grid-cols-4 gap-2 py-3 hidden">
-                    <div class="teamCont p-3 shadow-sm rounded-md">
-                        <img class="w-[100%]" src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Lilly" alt="">
-                        Equipo 1
-                    </div>
-                    <div class="teamCont p-3 shadow-sm rounded-md">
-                        <img class="w-[100%]" src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Garfield" alt="">
-                        Equipo 2
-                    </div>
-                    <div class="teamCont p-3 shadow-sm rounded-md">
-                        <img class="w-[100%]" src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Missy" alt="">
-                        Equipo 3
-                    </div>
-                    <div class="teamCont p-3 shadow-sm rounded-md">
-                        <img class="w-[100%]" src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Casper" alt="">
-                        Equipo 4
-                    </div>
-                    <div class="teamCont p-3 shadow-sm rounded-md">
-                        <img class="w-[100%]" src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Bear" alt="">
-                        Equipo 5
-                    </div>
+                    @foreach($torneo->equipos as $equipo)
+                    <a href="/equipo/{{$equipo->idEquipo}}" class="teamCont p-3 shadow-sm rounded-md hover:bg-gray-300">
+                        <img class="w-[100%]" src="/client/{{$equipo->urllogo}}" alt="">
+                        {{$equipo->nombre}}
+</a>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -157,19 +136,15 @@
                     <tr>
                         <td>#</td>
                         <td>Equipo</td>
-                        <td>P</td>
-                        <td>G</td>
                         <td>PTS</td>
                     </tr>
                 </thead>
                 <tbody class="posTable">
-                    @for($i=1; $i <= 10; $i++)
+                    @for($i=0; $i < count($equiposOrder); $i++)
                         <tr class="hover:bg-gray-50 my-2">
-                            <td>{{$i}}</td>
-                            <td> Equipo {{$i}}</td>
-                            <td>{{rand(5-$i,9-$i)}}</td>
-                            <td>{{rand(5-$i,9-$i)}}</td>
-                            <td>{{rand(5-$i,9-$i)}}</td>
+                            <td class="text-center">{{$i+1}}</td>
+                            <td class="flex flex-row items-center">{{$equiposOrder[$i]->nombre}}</td>
+                            <td class="text-center">{{$equiposOrder[$i]->puntos}}</td>
                         </tr>
                     @endfor
                 </tbody>
@@ -181,7 +156,6 @@
     <script>
         const resCont = document.getElementById('resCont')
         const staCont = document.getElementById('staCont')
-        const posCont = document.getElementById('posCont')
         const teamscont = document.getElementById('teamscont')
         const gameCont = document.getElementById('gameCont')
         function changetab(data, elementtab) {
@@ -190,25 +164,21 @@
             switch (data) {
                 case "resCont":
                     resCont.classList.remove('hidden');
-                    posCont.classList.add('hidden');
                     staCont.classList.add('hidden');
                     teamscont.classList.add('hidden');
                     break;
                 case "staCont":
                     staCont.classList.remove('hidden');
-                    posCont.classList.add('hidden');
                     resCont.classList.add('hidden');
                     teamscont.classList.add('hidden');
                     break;
                 case "posCont":
-                    posCont.classList.remove('hidden');
                     resCont.classList.add('hidden');
                     staCont.classList.add('hidden');
                     teamscont.classList.add('hidden');
                     break;
                 case "teamscont":
                     teamscont.classList.remove('hidden');
-                    posCont.classList.add('hidden');
                     staCont.classList.add('hidden');
                     resCont.classList.add('hidden');
                     break;
